@@ -1,0 +1,9 @@
+[project]
+name = "my-local-ai-environment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastmcp>=2.14.5,<3",
+]
