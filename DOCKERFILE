@@ -1,1 +1,3 @@
 FROM ghcr.io/astral-sh/uv:0.10-python3.14-trixie-slim
+
+ENV PATH="/workspaces/my-local-ai-environment/.venv:$PATH"
