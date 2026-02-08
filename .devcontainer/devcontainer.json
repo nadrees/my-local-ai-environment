@@ -15,12 +15,13 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-azuretools.vscode-containers",
-				"ms-python.debugpy"
+				"ms-python.debugpy",
+				"ms-python.black-formatter"
 			]
 		}
 	},
 	"mounts": [
-		"source=C:\\Projects\\cragborn,target=/mnt/data,type=bind,consistency=cached"
+		"source=${localWorkspaceFolder}\\..\\cragborn,target=/mnt/data,type=bind,consistency=cached"
 	]
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": []
