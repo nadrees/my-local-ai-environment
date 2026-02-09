@@ -1,8 +1,10 @@
-from constants import MNT_DIR
-from fastmcp import FastMCP
-from fastmcp.server.providers import FileSystemProvider
-from fastmcp.resources.types import DirectoryResource
 from pathlib import Path
+
+from fastmcp import FastMCP
+from fastmcp.resources.types import DirectoryResource
+from fastmcp.server.providers import FileSystemProvider
+
+from constants import MNT_DIR
 
 mcp = FastMCP(
     "My MCP Server",

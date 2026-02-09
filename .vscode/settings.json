@@ -1,6 +1,15 @@
 {
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "standard",
     "python.analysis.ignore": [
         "cli.py"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

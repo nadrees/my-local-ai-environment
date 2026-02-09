@@ -16,7 +16,8 @@
 				"ms-python.python",
 				"ms-azuretools.vscode-containers",
 				"ms-python.debugpy",
-				"ms-python.black-formatter"
+				"ms-python.black-formatter",
+				"ms-python.isort"
 			]
 		}
 	},
