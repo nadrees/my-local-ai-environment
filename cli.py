@@ -10,9 +10,8 @@ from typing import Annotated
 
 import cyclopts
 import mcp.types
-from rich.console import Console
-
 from fastmcp import Client
+from rich.console import Console
 
 # Modify this to change how the CLI connects to the MCP server.
 CLIENT_SPEC = "http://127.0.0.1:8000/mcp"
@@ -32,7 +31,7 @@ console = Console()
 def _print_tool_result(result):
     if result.is_error:
         for block in result.content:
-            if isinstance(block, mcp.types.TextContent):
+            if isinstance(block, my_mcp.types.TextContent):
                 console.print(f"[bold red]Error:[/bold red] {block.text}")
             else:
                 console.print(f"[bold red]Error:[/bold red] {block}")
@@ -43,12 +42,12 @@ def _print_tool_result(result):
         return
 
     for block in result.content:
-        if isinstance(block, mcp.types.TextContent):
+        if isinstance(block, my_mcp.types.TextContent):
             console.print(block.text)
-        elif isinstance(block, mcp.types.ImageContent):
+        elif isinstance(block, my_mcp.types.ImageContent):
             size = len(block.data) * 3 // 4
             console.print(f"[dim][Image: {block.mimeType}, ~{size} bytes][/dim]")
-        elif isinstance(block, mcp.types.AudioContent):
+        elif isinstance(block, my_mcp.types.AudioContent):
             size = len(block.data) * 3 // 4
             console.print(f"[dim][Audio: {block.mimeType}, ~{size} bytes][/dim]")
 
@@ -141,9 +140,9 @@ async def read_resource(
     async with Client(CLIENT_SPEC) as client:
         contents = await client.read_resource(uri)
         for block in contents:
-            if isinstance(block, mcp.types.TextResourceContents):
+            if isinstance(block, my_mcp.types.TextResourceContents):
                 console.print(block.text)
-            elif isinstance(block, mcp.types.BlobResourceContents):
+            elif isinstance(block, my_mcp.types.BlobResourceContents):
                 size = len(block.blob) * 3 // 4
                 console.print(f"[dim][Blob: {block.mimeType}, ~{size} bytes][/dim]")
 
@@ -187,9 +186,9 @@ async def get_prompt(
         result = await client.get_prompt(name, parsed or None)
         for msg in result.messages:
             console.print(f"[bold]{msg.role}:[/bold]")
-            if isinstance(msg.content, mcp.types.TextContent):
+            if isinstance(msg.content, my_mcp.types.TextContent):
                 console.print(f"  {msg.content.text}")
-            elif isinstance(msg.content, mcp.types.ImageContent):
+            elif isinstance(msg.content, my_mcp.types.ImageContent):
                 size = len(msg.content.data) * 3 // 4
                 console.print(
                     f"  [dim][Image: {msg.content.mimeType}, ~{size} bytes][/dim]"

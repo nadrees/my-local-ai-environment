@@ -8,7 +8,7 @@ from constants import MNT_DIR
 
 mcp = FastMCP(
     "My MCP Server",
-    providers=[FileSystemProvider(Path(__file__).parent / "mcp", reload=True)],
+    providers=[FileSystemProvider(Path(__file__).parent / "my_mcp")],
 )
 mcp.add_resource(
     DirectoryResource(
