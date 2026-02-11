@@ -7,7 +7,6 @@ from fastmcp.exceptions import ToolError
 from fastmcp.tools.function_tool import tool
 from pydantic import Field
 
-from constants import MNT_DIR
 from my_mcp.dataclasses.file import McpFile
 
 
