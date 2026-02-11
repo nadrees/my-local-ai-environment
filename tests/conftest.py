@@ -1,7 +1,10 @@
 import importlib
+import json
+from typing import List
 
 import pytest
 from fastmcp.client import Client
+from mcp.types import BlobResourceContents, TextResourceContents
 
 import constants
 
@@ -28,3 +31,15 @@ async def mcp_client(file_system, monkeypatch):
     importlib.reload(main)
     async with Client(transport=main.mcp) as client:
         yield client
+
+
+def parse_files_from_resource_result(
+    results: List[TextResourceContents | BlobResourceContents],
+) -> List[str]:
+    """Parses the list of files from the given ReadResourceResult contents."""
+    files = []
+    for result in results:
+        if isinstance(result, TextResourceContents):
+            parsed_results = json.loads(result.text)
+            files.extend(parsed_results.get("files", []))
+    return files

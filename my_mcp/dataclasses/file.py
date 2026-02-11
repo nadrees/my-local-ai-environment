@@ -20,7 +20,7 @@ class McpFile:
             # Remove leading slash to prevent absolute path issues
             self.path = self.path[1:]
         p = (MNT_DIR / self.path).resolve()
-        if not p.is_relative_to(MNT_DIR):
+        if not p.is_relative_to(MNT_DIR) or p == MNT_DIR:
             raise ValueError(
                 f"Attempt to navigate higher than root directory: {self.path}."
             )
