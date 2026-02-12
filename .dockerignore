@@ -1,0 +1,20 @@
+# Ignore local virtual environments
+.venv/
+venv/
+env/
+
+# Python cache and build artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+dist/
+*.egg-info/
+
+# Git and editor files
+.git/
+.vscode/
+.DS_Store
+
+# Dockerfile artifacts
+Dockerfile*
