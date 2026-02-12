@@ -22,6 +22,3 @@ COPY . .
 
 # Run the app using uv (keeps development tooling behavior)
 CMD [ "uv", "run", "main.py" ]
-
-# Expose the HTTP port the app uses
-EXPOSE 8000

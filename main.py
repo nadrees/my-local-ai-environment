@@ -22,4 +22,4 @@ mcp.add_resource(
 
 if __name__ == "__main__":
     # Bind to 0.0.0.0 so the server is reachable from outside the container
-    mcp.run("http", host="0.0.0.0", port=8000)
+    mcp.run("stdio")
